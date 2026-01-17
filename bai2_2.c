@@ -1,7 +1,7 @@
 /******************************************************************************
- * Họ và tên: [ĐIỀN TÊN TẠI ĐÂY]
- * MSSV:      [ĐIỀN MSSV TẠI ĐÂY]
- * Lớp:       [ĐIỀN LỚP TẠI ĐÂY]
+ * Họ và tên: [võ quốc thịnh]
+ * MSSV:      [PS48006]
+ * Lớp:       [CS21301]
  *****************************************************************************/
 
 //  BÀI 2: XÂY DỰNG CHƯƠNG TRÌNH GIẢI PHƯƠNG TRÌNH  
@@ -24,11 +24,45 @@
 int main(){
     
     // Khai báo biến
+    float a, b, c, delta, x1, x2;
+
 
 
     // Nhập dữ liệu
+    printf("Nhập hệ số a: ");
+    scanf("%f", &a);
+    printf("Nhập hệ số b: ");
+    scanf("%f", &b);
+    printf("Nhập hệ số c: ");
+    scanf("%f", &c);
+
 
 
     // Xử lý, tính toán VÀ Hiển thị kết quả
+    if (a == 0) {
+        if (b == 0) {
+            if (c == 0)
+                printf("Phương trình có vô số nghiệm.\n");
+            else
+                printf("Phương trình vô nghiệm.\n");
+        } else {
+            float x = -c / b;
+            printf("Phương trình có nghiệm x = %.2f\n", x);
+        }
+    } else {
+        delta = b * b - 4 * a * c;
+        if (delta < 0) {
+            printf("Phương trình vô nghiệm.\n");
+        } else if (delta == 0) {
+            float x = -b / (2 * a);
+            printf("Phương trình có nghiệm kép x = %.2f\n", x);
+        } else {
+            x1 = (-b + sqrt(delta)) / (2 * a);
+            x2 = (-b - sqrt(delta)) / (2 * a);
+            printf("Phương trình có hai nghiệm phân biệt:\n");
+            printf("x1 = %.2f\n", x1);
+            printf("x2 = %.2f\n", x2);
+        }
+    }
 
 }
