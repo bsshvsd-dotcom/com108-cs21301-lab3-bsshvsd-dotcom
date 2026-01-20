@@ -8,29 +8,42 @@
 //  Input: Nhập vào số điện tiêu thụ hàng tháng 
 //  Output: Hiển thị số tiền cần phải đóng
  
-#include <stdio.h>
+#include <iostream>
+#include <iomanip>
 
-int main(){
-    
-    // Khai báo biến
-    int soDien;
-    float tienDien;
+using namespace std;
 
+int main() {
+    double soKwh, tienDien = 0;
 
     // Nhập dữ liệu
-    printf("Nhập số điện tiêu thụ trong tháng: ");
-    scanf("%d", &soDien);
+    cout << "Nhap vao so dien tieu thu hang thang (kWh): ";
+    cin >> soKwh;
 
-
-
-    // Xử lý, tính toán VÀ Hiển thị kết quả
-    if (soDien <= 50) {
-        tienDien = soDien * 1000;
+    if (soKwh < 0) {
+        cout << "So dien khong hop le!" << endl;
     } else {
-        tienDien = 50 * 1000 + (soDien - 50) * 1200;
+        // Tinh toan theo tung bac
+        if (soKwh <= 50) {
+            tienDien = soKwh * 1678;
+        } else if (soKwh <= 100) {
+            tienDien = (50 * 1678) + (soKwh - 50) * 1734;
+        } else if (soKwh <= 200) {
+            tienDien = (50 * 1678) + (50 * 1734) + (soKwh - 100) * 2014;
+        } else if (soKwh <= 300) {
+            tienDien = (50 * 1678) + (50 * 1734) + (100 * 2014) + (soKwh - 200) * 2536;
+        } else if (soKwh <= 400) {
+            tienDien = (50 * 1678) + (50 * 1734) + (100 * 2014) + (100 * 2536) + (soKwh - 300) * 2834;
+        } else {
+            tienDien = (50 * 1678) + (50 * 1734) + (100 * 2014) + (100 * 2536) + (100 * 2834) + (soKwh - 400) * 2927;
+        }
+
+        // Xuất kết quả
+        cout << fixed << setprecision(0); // Định dạng không lấy số thập phân
+        cout << "-----------------------------------" << endl;
+        cout << "So kWh tieu thu: " << soKwh << " kWh" << endl;
+        cout << "Tong tien dien phai dong: " << tienDien << " dong" << endl;
     }
 
-    printf("Số tiền điện phải trả là: %.2f\n", tienDien);
-    return 0;       
-
+    return 0;
 }
