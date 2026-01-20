@@ -7,11 +7,8 @@
 //  BÀI 3: XÂY DỰNG CHƯƠNG TRÌNH TÍNH TIỀN ĐIỆN 
 //  Input: Nhập vào số điện tiêu thụ hàng tháng 
 //  Output: Hiển thị số tiền cần phải đóng
- 
-#include <iostream>
-#include <iomanip>
 
-using namespace std;
+#include<stdio.h>
 
 int main() {
     double soKwh, tienDien = 0;
@@ -37,12 +34,8 @@ int main() {
         } else {
             tienDien = (50 * 1678) + (50 * 1734) + (100 * 2014) + (100 * 2536) + (100 * 2834) + (soKwh - 400) * 2927;
         }
-
-        // Xuất kết quả
-        cout << fixed << setprecision(0); // Định dạng không lấy số thập phân
-        cout << "-----------------------------------" << endl;
-        cout << "So kWh tieu thu: " << soKwh << " kWh" << endl;
-        cout << "Tong tien dien phai dong: " << tienDien << " dong" << endl;
+        // Hien thi ket qua
+        cout << "So tien dien phai dong: " << tienDien << " VND" << endl;
     }
 
     return 0;
